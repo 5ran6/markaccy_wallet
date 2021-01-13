@@ -186,7 +186,7 @@ class _LoginViewState extends State<LoginView> {
                       Navigator.push(
                         context,
                         PageTransition(
-                          type: PageTransitionType.upToDown,
+                          type: PageTransitionType.topToBottom,
                           child: ForgetPassView(),
                         ),
                       );

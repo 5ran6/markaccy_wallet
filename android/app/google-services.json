@@ -1,50 +1,42 @@
 {
   "project_info": {
-    "project_number": "246251246828",
-    "firebase_url": "https://flutter-crypto.firebaseio.com",
-    "project_id": "flutter-crypto",
-    "storage_bucket": "flutter-crypto.appspot.com"
+    "project_number": "140564125769",
+    "project_id": "markaccywallet-6d3f1",
+    "storage_bucket": "markaccywallet-6d3f1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:246251246828:android:5422b38aa7543daa3cc1c9",
+        "mobilesdk_app_id": "1:140564125769:android:b9c444bada5627b3e24798",
         "android_client_info": {
           "package_name": "com.example.flutterCrypto"
         }
       },
       "oauth_client": [
         {
-          "client_id": "246251246828-tqnimlgiqnd7ku28vmnjtjq4736nd9rj.apps.googleusercontent.com",
+          "client_id": "140564125769-ou117abs8r2vd7umt2asdjleb9u6d8f7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.flutterCrypto",
-            "certificate_hash": "ca05f203df4755f0d5d00d5ccca38000bbbd8d17"
+            "certificate_hash": "52745b6fe736c210cf415749620f2124d253cbbd"
           }
         },
         {
-          "client_id": "246251246828-jmslf9p9gaslktqcie4af6ge5l282pr9.apps.googleusercontent.com",
+          "client_id": "140564125769-9gej81fj6cnobhr9qjulhoqqrals8196.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD05Fpr2slXXSbwuyxwXQ1B0PzVTnKsf9w"
+          "current_key": "AIzaSyB-LsPz9bUWqLN6xmB-HD_LBbytC80Qdxs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "246251246828-jmslf9p9gaslktqcie4af6ge5l282pr9.apps.googleusercontent.com",
+              "client_id": "140564125769-9gej81fj6cnobhr9qjulhoqqrals8196.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "246251246828-l04cg5phdj0cvas02pui5rd1ni7sckoj.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.flutterCrypto"
-              }
             }
           ]
         }

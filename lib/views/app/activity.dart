@@ -169,7 +169,7 @@ class ActivityView extends StatelessWidget {
                         Navigator.push(
                           context,
                           PageTransition(
-                            type: PageTransitionType.upToDown,
+                            type: PageTransitionType.topToBottom,
                             child: TransactionView(
                               transactionId: index,
                             ),

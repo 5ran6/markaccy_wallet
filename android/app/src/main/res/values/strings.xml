@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">Flutter Crypto</string>
+    <string name="app_name">MkcY Wallet</string>
 
-    <string name="facebook_app_id">Your Facebook app Id</string>
-    <string name="fb_login_protocol_scheme">Your Facebook Protocol Scheme</string>
+    <string name="facebook_app_id">2867441526822075</string>
+    <string name="fb_login_protocol_scheme">fb2867441526822075</string>
 </resources>

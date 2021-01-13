@@ -483,7 +483,7 @@ class _WalletCoinViewState extends State<WalletCoinView> {
                         Navigator.push(
                           context,
                           PageTransition(
-                            type: PageTransitionType.upToDown,
+                            type: PageTransitionType.topToBottom,
                             child: TransactionView(
                               transactionId: index,
                             ),

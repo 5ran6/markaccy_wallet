@@ -291,7 +291,7 @@ class HomeView extends StatelessWidget {
             Navigator.push(
               context,
               PageTransition(
-                type: PageTransitionType.upToDown,
+                type: PageTransitionType.topToBottom,
                 child: ActivityView(),
               ),
             );
