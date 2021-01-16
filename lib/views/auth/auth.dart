@@ -304,10 +304,10 @@ class _AuthState extends State<Auth> {
             padding: EdgeInsets.only(bottom: 5, top: 5),
             child: InkWell(
               onTap: () async {
-                auth.anonLogin(context);
+               // auth.anonLogin(context);
               },
               child: Text(
-                AppLocalizations.of(context).translate('anon_login'),
+                AppLocalizations.of(context).translate('markaccy'),
                 style: TextStyle(
                   fontSize: ScreenUtil().setSp(40),
                   color: Colors.grey,

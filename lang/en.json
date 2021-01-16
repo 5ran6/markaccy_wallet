@@ -17,7 +17,7 @@
     "empty_password": "Password cant be empty",
     "empty_username": "Username cant be empty",
     "login_error": "Email or password is wrong",
-    "register_error": "Invalid Email",
+    "register_error": "Something went wrong",
     "logout_error": "Unable to logout",
     "small_username": "Short Username",
     "small_password": "Password need to have more than 5 characters",
@@ -107,7 +107,8 @@
     "notifications": "Notifications",
     "no_notifications": "You have no notifications at this time, enjoy the rest of the day",
     "settings": "Settings",
-    "pin_code": "Pin Code"
+    "pin_code": "Pin Code",
+    "markaccy": "Markaccy"
 
 
 

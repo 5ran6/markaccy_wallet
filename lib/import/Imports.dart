@@ -61,6 +61,7 @@ export 'package:flutterCrypto/services/ThemeNotifier.dart';
 export 'package:flutterCrypto/services/AuthService.dart';
 export 'package:flutterCrypto/services/CryptoAPI.dart';
 export 'package:flutterCrypto/services/Keys.dart';
+
 //------------------------Models------------------------------------------------
 export 'package:flutterCrypto/model/Languages.dart';
 export 'package:flutterCrypto/model/MenuItems.dart';
@@ -69,6 +70,7 @@ export 'package:flutterCrypto/model/News.dart';
 export 'package:flutterCrypto/model/User.dart';
 export 'package:flutterCrypto/model/Transactions.dart';
 export 'package:flutterCrypto/model/Cryptos.dart';
+
 //------------------------Widgets-----------------------------------------------
 export 'package:flutterCrypto/utils/widgets/NumberPad.dart';
 export 'package:flutterCrypto/utils/widgets/CustomDialog.dart';

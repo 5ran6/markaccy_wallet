@@ -4,6 +4,7 @@ bool isDarkModeOn = true;
 
 class TabNavigator extends StatelessWidget {
   final String tabItem;
+
   TabNavigator({Key key, this.tabItem}) : super(key: key);
 
   @override
@@ -35,7 +36,11 @@ class TabNavigator extends StatelessWidget {
         child = error();
         break;
     }
-    return child;
+    return WillPopScope(
+        onWillPop: () async {
+          showAlertDialog(context);
+        },
+        child: child);
   }
 
   static error() {
@@ -43,6 +48,40 @@ class TabNavigator extends StatelessWidget {
       body: Center(
         child: Text("Error"),
       ),
+    );
+  }
+
+  void showAlertDialog(BuildContext context) {
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+    Widget continueButton = FlatButton(
+      child: Text("Continue"),
+      onPressed: () {
+        SystemNavigator.pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Exiting?"),
+      content: Text("Are you sure you want to exit?"),
+      actions: [
+        cancelButton,
+        continueButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }

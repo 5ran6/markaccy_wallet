@@ -119,7 +119,7 @@ class AuthService {
       Provider.of<ThemeNotifier>(context, listen: false).isLoading(true);
 
       switch (result.status) {
-        case FacebookLoginStatus.Success:
+        case FacebookLoginStatus.success:
           final FacebookAccessToken facebookAccessToken = result.accessToken;
 
           final AuthCredential credential = FacebookAuthProvider.getCredential(
@@ -129,12 +129,12 @@ class AuthService {
           Provider.of<ThemeNotifier>(context, listen: false).isLoading(false);
 
           break;
-        case FacebookLoginStatus.Cancel:
+        case FacebookLoginStatus.cancel:
           showSnackBar(
               AppLocalizations.of(context).translate('facebook_cancel'),
               context);
           break;
-        case FacebookLoginStatus.Error:
+        case FacebookLoginStatus.error:
           showSnackBar(AppLocalizations.of(context).translate('facebook_error'),
               context);
           break;

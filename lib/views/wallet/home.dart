@@ -11,6 +11,8 @@ class WalletView extends StatefulWidget {
 }
 
 class _WalletViewState extends State<WalletView> {
+//TODO: Markaccy wallet mode
+
   int _selectedItemPosition = 0;
   PageController pageController = PageController();
   @override

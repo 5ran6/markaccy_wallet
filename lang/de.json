@@ -107,5 +107,7 @@
     "notifications": "Benachrichtigungen",
     "no_notifications": "Sie haben zu dieser Zeit keine Benachrichtigungen, genießen Sie den Rest des Tages",
     "settings": "Einstellungen",
-    "pin_code": "Pin-Code"
+    "pin_code": "Pin-Code",
+
+    "markaccy": "Markaccy"
 }

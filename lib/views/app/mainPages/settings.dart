@@ -914,7 +914,7 @@ class _SettingsViewState extends State<SettingsView> {
                 ]),
             width: 0.5.wp,
             child: Text(
-              "WALLET TEMPLATE",
+              "MARKACCY MODE",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Theme.of(context).textSelectionHandleColor,

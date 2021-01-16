@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
               ),
               _movers(context),
               _activity(context),
-              _news(context),
+           //   _news(context),
             ],
           ),
         ),

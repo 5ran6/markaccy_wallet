@@ -111,6 +111,7 @@ class _WalletCoinViewState extends State<WalletCoinView> {
           'assets/icons/star_half.svg',
           color: Theme.of(context).textSelectionHandleColor,
           width: 80.w,
+
         )
       ],
     );
@@ -187,10 +188,12 @@ class _WalletCoinViewState extends State<WalletCoinView> {
       height: 0.4.hp,
       width: 1.wp,
       child: LineChart(
+        //TODO: get real values and set real min and max x and y
+
         LineChartData(
           gridData: FlGridData(
-            show: true,
-            drawHorizontalLine: false,
+            show: false,
+            drawHorizontalLine: true,
             drawVerticalLine: false,
             getDrawingHorizontalLine: (value) {
               return FlLine(
@@ -201,11 +204,12 @@ class _WalletCoinViewState extends State<WalletCoinView> {
           ),
           /*To show the graph titles chnage teh "show" parameter to true  */
           titlesData: FlTitlesData(
-            show: false,
+            show: true,
           ),
           borderData: FlBorderData(
             show: false,
           ),
+
 
           /*Here are the graph max and min values to x and y axis  */
           minX: 0,

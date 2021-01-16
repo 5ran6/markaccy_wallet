@@ -62,7 +62,7 @@ class _LandingPageState extends State<LandingPage> {
                     key: _scaffoldKey,
                     extendBody: true,
                     body:
-                        /*Router Widget that will change the page corresponding to selected 
+                        /*Router Widget that will change the page corresponding to selected
           bottom navigation bar icon */
 
                         TabNavigator(
@@ -141,8 +141,11 @@ class _LandingPageState extends State<LandingPage> {
                 return supportedLocales;
               }
             }
+            //TODO: set the default language dynamically...not statically choosing English
+
             //If the locale of the device is not supported, use the first one
             //from the list (English, in this case)
+//            return supportedLocales.elementAt(1);
             return supportedLocales.first;
           },
         );
@@ -156,416 +159,424 @@ class _LandingPageState extends State<LandingPage> {
       backgroundColor: Colors.transparent,
       expand: false,
       context: context,
-      builder: (context, scrollController) => Container(
-        height: 0.5.hp,
-        padding: EdgeInsets.only(left: 15, right: 15),
-        decoration: BoxDecoration(
-          color: Theme.of(_scaffoldKey.currentContext).cardColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
+      builder: (context) => SingleChildScrollView(
+        controller: ModalScrollController.of(context),
+        child: Container(
+          height: 0.5.hp,
+          padding: EdgeInsets.only(left: 15, right: 15),
+          decoration: BoxDecoration(
+            color: Theme.of(_scaffoldKey.currentContext).cardColor,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BuyView(
-                    contextBack: _scaffoldKey.currentContext,
-                  ),
-                ),
-              ),
-              child: Container(
-                width: 1.wp,
-                padding: EdgeInsets.only(top: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.transparent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BuyView(
+                      contextBack: _scaffoldKey.currentContext,
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: AppTheme.iconContainerColor,
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.blueTheme.withOpacity(0.5),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/buy_crypto.png',
-                        color: Colors.white,
-                        height: 65.h,
+                child: Container(
+                  width: 1.wp,
+                  padding: EdgeInsets.only(top: 15),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.transparent,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('buy'),
-                            maxFontSize: 37,
-                            minFontSize: 6,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(40),
-                              fontFamily: AppTheme.mediumFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          ),
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('buy_text'),
-                            maxFontSize: 50,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(35),
-                              fontFamily: AppTheme.lightFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          )
-                        ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: Image.asset(
+                          'assets/icons/buy_crypto.png',
+                          color: Colors.white,
+                          height: 65.h,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SellView(
-                    contextBack: _scaffoldKey.currentContext,
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('buy'),
+                              maxFontSize: 37,
+                              minFontSize: 6,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(40),
+                                fontFamily: AppTheme.mediumFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            ),
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('buy_text'),
+                              maxFontSize: 50,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(35),
+                                fontFamily: AppTheme.lightFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              child: Container(
-                width: 1.wp,
-                padding: EdgeInsets.only(top: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.grey[200],
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SellView(
+                      contextBack: _scaffoldKey.currentContext,
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: AppTheme.iconContainerColor,
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.blueTheme.withOpacity(0.5),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/sell_crypto.png',
-                        color: Colors.white,
-                        height: 65.h,
+                child: Container(
+                  width: 1.wp,
+                  padding: EdgeInsets.only(top: 15),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.grey[200],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('sell'),
-                            maxFontSize: 37,
-                            minFontSize: 6,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(40),
-                              fontFamily: AppTheme.mediumFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          ),
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('sell_text'),
-                            maxFontSize: 50,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(35),
-                              fontFamily: AppTheme.lightFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          )
-                        ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: Image.asset(
+                          'assets/icons/sell_crypto.png',
+                          color: Colors.white,
+                          height: 65.h,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ConvertView(
-                    contextBack: _scaffoldKey.currentContext,
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('sell'),
+                              maxFontSize: 37,
+                              minFontSize: 6,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(40),
+                                fontFamily: AppTheme.mediumFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            ),
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('sell_text'),
+                              maxFontSize: 50,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(35),
+                                fontFamily: AppTheme.lightFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              child: Container(
-                width: 1.wp,
-                padding: EdgeInsets.only(top: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.grey[200],
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ConvertView(
+                      contextBack: _scaffoldKey.currentContext,
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: AppTheme.iconContainerColor,
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.blueTheme.withOpacity(0.5),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/convert.png',
-                        color: Colors.white,
-                        height: 65.h,
+                child: Container(
+                  width: 1.wp,
+                  padding: EdgeInsets.only(top: 15),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.grey[200],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('convert'),
-                            maxFontSize: 37,
-                            minFontSize: 6,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(40),
-                              fontFamily: AppTheme.mediumFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          ),
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('convert_text'),
-                            maxFontSize: 50,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(35),
-                              fontFamily: AppTheme.lightFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          )
-                        ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: Image.asset(
+                          'assets/icons/convert.png',
+                          color: Colors.white,
+                          height: 65.h,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => SendView(
-                    contextBack: _scaffoldKey.currentContext,
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('convert'),
+                              maxFontSize: 37,
+                              minFontSize: 6,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(40),
+                                fontFamily: AppTheme.mediumFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            ),
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('convert_text'),
+                              maxFontSize: 50,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(35),
+                                fontFamily: AppTheme.lightFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              child: Container(
-                width: 1.wp,
-                padding: EdgeInsets.only(top: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.grey[200],
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SendView(
+                      contextBack: _scaffoldKey.currentContext,
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: AppTheme.iconContainerColor,
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.blueTheme.withOpacity(0.5),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/arrow_up.png',
-                        color: Colors.white,
-                        height: 60.h,
+                child: Container(
+                  width: 1.wp,
+                  padding: EdgeInsets.only(top: 15),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.grey[200],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('send'),
-                            maxFontSize: 37,
-                            minFontSize: 6,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(40),
-                              fontFamily: AppTheme.mediumFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          ),
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('send_text'),
-                            maxFontSize: 50,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(35),
-                              fontFamily: AppTheme.lightFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          )
-                        ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: Image.asset(
+                          'assets/icons/arrow_up.png',
+                          color: Colors.white,
+                          height: 60.h,
+                        ),
                       ),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ReceiveView(
-                    contextBack: _scaffoldKey.currentContext,
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('send'),
+                              maxFontSize: 37,
+                              minFontSize: 6,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(40),
+                                fontFamily: AppTheme.mediumFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            ),
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('send_text'),
+                              maxFontSize: 50,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(35),
+                                fontFamily: AppTheme.lightFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
-              child: Container(
-                width: 1.wp,
-                padding: EdgeInsets.only(top: 15),
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.grey[200],
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReceiveView(
+                      contextBack: _scaffoldKey.currentContext,
                     ),
                   ),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          color: AppTheme.iconContainerColor,
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppTheme.blueTheme.withOpacity(0.5),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/arrow_down.png',
-                        color: Colors.white,
-                        height: 60.h,
+                child: Container(
+                  width: 1.wp,
+                  padding: EdgeInsets.only(top: 15),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.grey[200],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('receive'),
-                            maxFontSize: 37,
-                            minFontSize: 6,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(40),
-                              fontFamily: AppTheme.mediumFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          ),
-                          AutoSizeText(
-                            AppLocalizations.of(_scaffoldKey.currentContext)
-                                .translate('receive_text'),
-                            maxFontSize: 50,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: ScreenUtil().setSp(35),
-                              fontFamily: AppTheme.lightFontFamily,
-                              color: Theme.of(_scaffoldKey.currentContext)
-                                  .textSelectionHandleColor,
-                            ),
-                          )
-                        ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: Image.asset(
+                          'assets/icons/arrow_down.png',
+                          color: Colors.white,
+                          height: 60.h,
+                        ),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('receive'),
+                              maxFontSize: 37,
+                              minFontSize: 6,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(40),
+                                fontFamily: AppTheme.mediumFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            ),
+                            AutoSizeText(
+                              AppLocalizations.of(_scaffoldKey.currentContext)
+                                  .translate('receive_text'),
+                              maxFontSize: 50,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: ScreenUtil().setSp(35),
+                                fontFamily: AppTheme.lightFontFamily,
+                                color: Theme.of(_scaffoldKey.currentContext)
+                                    .textSelectionHandleColor,
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 
-  /*Function that will handle the navigation with bottom navigation bar updating 
+  /*Function that will handle the navigation with bottom navigation bar updating
   variables and calling the new pages*/
 
   void handleNavigationChange(int index) {
@@ -581,4 +592,5 @@ class _LandingPageState extends State<LandingPage> {
       },
     );
   }
+
 }

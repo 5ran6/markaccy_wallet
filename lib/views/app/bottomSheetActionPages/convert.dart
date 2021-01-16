@@ -368,197 +368,200 @@ class _ConvertViewState extends State<ConvertView> {
     showBarModalBottomSheet(
       expand: false,
       context: context,
-      builder: (context, scrollController) => NotificationListener<
-              OverscrollIndicatorNotification>(
-          onNotification: (overscroll) {
-            overscroll.disallowGlow();
-            return null;
-          },
-          child: Container(
-            height: 0.65.hp,
-            color: Theme.of(widget.contextBack).cardColor,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 25),
-                  child: Container(
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey[200],
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(20))),
-                    width: 0.8.wp,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              AppLocalizations.of(widget.contextBack)
-                                  .translate('from'),
-                              style: TextStyle(
-                                color: Theme.of(widget.contextBack)
-                                    .textSelectionHandleColor,
-                                fontFamily: AppTheme.lightFontFamily,
-                                fontSize: ScreenUtil().setSp(50),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 15, right: 5),
-                              child: Image.asset(
-                                cryptoCoins[0].image,
-                                height: 80.h,
-                              ),
-                            ),
-                            Text(
-                              cryptoCoins[0].name,
-                              style: TextStyle(
-                                color: Theme.of(widget.contextBack)
-                                    .textSelectionHandleColor,
-                                fontFamily: AppTheme.lightFontFamily,
-                                fontSize: ScreenUtil().setSp(50),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 8, bottom: 8),
-                          child: Divider(
+      builder: (context) => SingleChildScrollView(
+        controller: ModalScrollController.of(context),
+        child: NotificationListener<
+                OverscrollIndicatorNotification>(
+            onNotification: (overscroll) {
+              overscroll.disallowGlow();
+              return null;
+            },
+            child: Container(
+              height: 0.65.hp,
+              color: Theme.of(widget.contextBack).cardColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 25),
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                          border: Border.all(
                             color: Colors.grey[200],
                           ),
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              AppLocalizations.of(widget.contextBack)
-                                  .translate('to'),
-                              style: TextStyle(
-                                color: Theme.of(widget.contextBack)
-                                    .textSelectionHandleColor,
-                                fontFamily: AppTheme.lightFontFamily,
-                                fontSize: ScreenUtil().setSp(50),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 31, right: 5),
-                              child: Image.asset(
-                                cryptoCoins[4].image,
-                                height: 80.h,
-                              ),
-                            ),
-                            Text(
-                              cryptoCoins[4].name,
-                              style: TextStyle(
-                                color: Theme.of(widget.contextBack)
-                                    .textSelectionHandleColor,
-                                fontFamily: AppTheme.lightFontFamily,
-                                fontSize: ScreenUtil().setSp(50),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 0.4.hp,
-                  color: Theme.of(widget.contextBack).cardColor,
-                  child: ListView.builder(
-                    padding: EdgeInsets.only(bottom: 15, top: 20),
-                    shrinkWrap: true,
-                    itemCount: cryptoCoins.length,
-                    itemBuilder: (context, index) {
-                      return FadeAnimation(
-                        0.5,
-                        /*When the user taps this icon he will be redirected to 
-                        the individual page of this coin */
-                        Container(
-                          padding:
-                              EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                          width: 1.wp,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          borderRadius: BorderRadius.all(Radius.circular(20))),
+                      width: 0.8.wp,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
                             children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(5),
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
-                                      border: Border.all(
-                                        width: 1.0,
-                                        color: Colors.grey[300],
-                                      ),
-                                    ),
-                                    child: Image.asset(
-                                      cryptoCoins[index].image,
-                                      fit: BoxFit.contain,
-                                      width: 90.w,
-                                    ),
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10),
-                                        child: Text(
-                                          cryptoCoins[index].name,
-                                          style: TextStyle(
-                                              color:
-                                                  Theme.of(widget.contextBack)
-                                                      .textSelectionHandleColor,
-                                              fontFamily:
-                                                  AppTheme.mediumFontFamily,
-                                              fontSize: ScreenUtil().setSp(40)),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 10),
-                                        child: Text(
-                                          cryptoCoins[index].code,
-                                          style: TextStyle(
-                                              color:
-                                                  Theme.of(widget.contextBack)
-                                                      .textSelectionHandleColor,
-                                              fontFamily:
-                                                  AppTheme.lightFontFamily,
-                                              fontSize: ScreenUtil().setSp(40)),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              AutoSizeText(
-                                '€ 0,00',
-                                textAlign: TextAlign.start,
-                                maxLines: 2,
+                              Text(
+                                AppLocalizations.of(widget.contextBack)
+                                    .translate('from'),
                                 style: TextStyle(
-                                  fontFamily: AppTheme.mediumFontFamily,
                                   color: Theme.of(widget.contextBack)
                                       .textSelectionHandleColor,
+                                  fontFamily: AppTheme.lightFontFamily,
+                                  fontSize: ScreenUtil().setSp(50),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 15, right: 5),
+                                child: Image.asset(
+                                  cryptoCoins[0].image,
+                                  height: 80.h,
+                                ),
+                              ),
+                              Text(
+                                cryptoCoins[0].name,
+                                style: TextStyle(
+                                  color: Theme.of(widget.contextBack)
+                                      .textSelectionHandleColor,
+                                  fontFamily: AppTheme.lightFontFamily,
                                   fontSize: ScreenUtil().setSp(50),
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                      );
-                    },
+                          Padding(
+                            padding: EdgeInsets.only(top: 8, bottom: 8),
+                            child: Divider(
+                              color: Colors.grey[200],
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                AppLocalizations.of(widget.contextBack)
+                                    .translate('to'),
+                                style: TextStyle(
+                                  color: Theme.of(widget.contextBack)
+                                      .textSelectionHandleColor,
+                                  fontFamily: AppTheme.lightFontFamily,
+                                  fontSize: ScreenUtil().setSp(50),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 31, right: 5),
+                                child: Image.asset(
+                                  cryptoCoins[4].image,
+                                  height: 80.h,
+                                ),
+                              ),
+                              Text(
+                                cryptoCoins[4].name,
+                                style: TextStyle(
+                                  color: Theme.of(widget.contextBack)
+                                      .textSelectionHandleColor,
+                                  fontFamily: AppTheme.lightFontFamily,
+                                  fontSize: ScreenUtil().setSp(50),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          )),
+                  Container(
+                    height: 0.4.hp,
+                    color: Theme.of(widget.contextBack).cardColor,
+                    child: ListView.builder(
+                      padding: EdgeInsets.only(bottom: 15, top: 20),
+                      shrinkWrap: true,
+                      itemCount: cryptoCoins.length,
+                      itemBuilder: (context, index) {
+                        return FadeAnimation(
+                          0.5,
+                          /*When the user taps this icon he will be redirected to
+                          the individual page of this coin */
+                          Container(
+                            padding:
+                                EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                            width: 1.wp,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(5),
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.all(Radius.circular(10)),
+                                        border: Border.all(
+                                          width: 1.0,
+                                          color: Colors.grey[300],
+                                        ),
+                                      ),
+                                      child: Image.asset(
+                                        cryptoCoins[index].image,
+                                        fit: BoxFit.contain,
+                                        width: 90.w,
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10),
+                                          child: Text(
+                                            cryptoCoins[index].name,
+                                            style: TextStyle(
+                                                color:
+                                                    Theme.of(widget.contextBack)
+                                                        .textSelectionHandleColor,
+                                                fontFamily:
+                                                    AppTheme.mediumFontFamily,
+                                                fontSize: ScreenUtil().setSp(40)),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(left: 10),
+                                          child: Text(
+                                            cryptoCoins[index].code,
+                                            style: TextStyle(
+                                                color:
+                                                    Theme.of(widget.contextBack)
+                                                        .textSelectionHandleColor,
+                                                fontFamily:
+                                                    AppTheme.lightFontFamily,
+                                                fontSize: ScreenUtil().setSp(40)),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                AutoSizeText(
+                                  '€ 0,00',
+                                  textAlign: TextAlign.start,
+                                  maxLines: 2,
+                                  style: TextStyle(
+                                    fontFamily: AppTheme.mediumFontFamily,
+                                    color: Theme.of(widget.contextBack)
+                                        .textSelectionHandleColor,
+                                    fontSize: ScreenUtil().setSp(50),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            )),
+      ),
     );
   }
 
