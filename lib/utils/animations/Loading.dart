@@ -12,6 +12,7 @@ class Loading extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               child: FlareActor(
+                //TODO: change to animated Markaccy Logo
                 'assets/animations/global/animated_circle.flr',
                 animation: 'loading',
                 alignment: Alignment.center,

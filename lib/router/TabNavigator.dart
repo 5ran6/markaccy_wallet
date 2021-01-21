@@ -51,7 +51,7 @@ class TabNavigator extends StatelessWidget {
     );
   }
 
-  void showAlertDialog(BuildContext context) {
+   showAlertDialog(BuildContext context) {
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("Cancel"),

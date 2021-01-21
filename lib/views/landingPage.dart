@@ -125,7 +125,7 @@ class _LandingPageState extends State<LandingPage> {
 
           supportedLocales: languageCodes,
           localizationsDelegates: [
-            //A class which loads the trtanslations from JSON files
+            //A class which loads the translations from JSON files
             AppLocalizations.delegate,
             //Built-in localization of basic text for Material widgets
             GlobalMaterialLocalizations.delegate,
@@ -145,7 +145,14 @@ class _LandingPageState extends State<LandingPage> {
 
             //If the locale of the device is not supported, use the first one
             //from the list (English, in this case)
-//            return supportedLocales.elementAt(1);
+            for (Locale locale in supportedLocales) {
+              // if device language is supported by the app,
+              // just return it to set it as current app language
+              if (supportedLocales.contains(locale)) {
+                return locale;
+              }
+            }
+
             return supportedLocales.first;
           },
         );
@@ -592,5 +599,4 @@ class _LandingPageState extends State<LandingPage> {
       },
     );
   }
-
 }

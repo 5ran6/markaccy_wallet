@@ -7,6 +7,7 @@ class SettingsView extends StatefulWidget {
   SettingsView({Function(bool) onSelection}) {
     onSelectionChange = onSelection;
   }
+
   @override
   _SettingsViewState createState() => _SettingsViewState();
 }
@@ -794,6 +795,58 @@ class _SettingsViewState extends State<SettingsView> {
               onTap: () => _alert(context),
               child: Container(
                 width: 1.wp,
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.grey[200],
+                    ),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: AppTheme.iconContainerColor,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(50.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppTheme.blueTheme.withOpacity(0.5),
+                                blurRadius: 6,
+                                offset: Offset(0, 1),
+                              ),
+                            ]),
+                        child: SvgPicture.asset(
+                          'assets/icons/currency.svg',
+                          height: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30),
+                        child: AutoSizeText(
+                          AppLocalizations.of(context).translate('currency'),
+                          maxLines: 1,
+                          style: TextStyle(
+                            fontFamily: AppTheme.mediumFontFamily,
+                            fontSize: ScreenUtil().setSp(40),
+                            color: Theme.of(context).textSelectionColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () => _alert(context),
+              child: Container(
+                width: 1.wp,
+                padding: const EdgeInsets.only(top: 20, bottom: 15),
                 decoration: BoxDecoration(
                   border: Border(
                     bottom: BorderSide(

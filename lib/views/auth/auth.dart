@@ -2,6 +2,7 @@ import 'package:flutterCrypto/import/Imports.dart';
 
 class Auth extends StatefulWidget {
   Auth({Key key}) : super(key: key);
+
   @override
   _AuthState createState() => _AuthState();
 }
@@ -36,7 +37,7 @@ class _AuthState extends State<Auth> {
 
     //Variables to check if the dark Theme is active
 
-    /*Main widget for all the auth pages, its where the login 
+    /*Main widget for all the auth pages, its where the login
     and register pages are called separately*/
 
     return loading
@@ -45,8 +46,8 @@ class _AuthState extends State<Auth> {
             child: Column(
               children: [
                 Container(
-                  /*Here the App will decide what color it will use 
-                        corresponding to the seleted theme option in the
+                  /*Here the App will decide what color it will use
+                        corresponding to the selected theme option in the
                         App settings page*/
 
                   height: 1.hp,
@@ -58,7 +59,7 @@ class _AuthState extends State<Auth> {
                       PageView(
                         controller: _pageController,
                         onPageChanged: (i) {
-                          /*With this logic the App changes the width of the 
+                          /*With this logic the App changes the width of the
                               selective navigator*/
 
                           if (i == 0) {
@@ -100,7 +101,7 @@ class _AuthState extends State<Auth> {
           );
   }
 
-  //Where all the background animations are
+  //TODO: Where all the background animations are. Change if necessary
   Widget _background(BuildContext context) {
     return Stack(
       children: [
@@ -158,8 +159,8 @@ class _AuthState extends State<Auth> {
                         highlightColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         onPressed: () async {
-                          /*If all the validation parameters in the Login 
-                             Form are correct the app will procced and do whats 
+                          /*If all the validation parameters in the Login
+                             Form are correct the app will procced and do whats
                              inside this if */
                           if (loginFormKey.currentState.validate()) {
                             loginFormKey.currentState.save();
@@ -207,8 +208,8 @@ class _AuthState extends State<Auth> {
                         highlightColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         onPressed: () async {
-                          /*If all the validation parameters in the Register 
-                             Form are correct the app will procced and do whats 
+                          /*If all the validation parameters in the Register
+                             Form are correct the app will procced and do whats
                              inside this if */
                           if (registerFormKey.currentState.validate()) {
                             registerFormKey.currentState.save();
@@ -304,7 +305,7 @@ class _AuthState extends State<Auth> {
             padding: EdgeInsets.only(bottom: 5, top: 5),
             child: InkWell(
               onTap: () async {
-               // auth.anonLogin(context);
+                // auth.anonLogin(context);
               },
               child: Text(
                 AppLocalizations.of(context).translate('markaccy'),

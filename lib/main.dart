@@ -15,17 +15,16 @@ void main() {
           loopAnimation: 'loading',
           height: 100,
           name: 'assets/animations/global/animated_circle.flr',
-          next: (context) =>
-              MultiProvider(
-                providers: [
-                  /*When The user changes the color theme this notifier will update
+          next: (context) => MultiProvider(
+            providers: [
+              /*When The user changes the color theme this notifier will update
               all variables related with the App Theme*/
-                  ChangeNotifierProvider<ThemeNotifier>(
-                    create: (context) => ThemeNotifier(),
-                  ),
-                ],
-                child: MyApp(),
+              ChangeNotifierProvider<ThemeNotifier>(
+                create: (context) => ThemeNotifier(),
               ),
+            ],
+            child: MyApp(),
+          ),
           until: () => Future.delayed(Duration(seconds: 2)),
           startAnimation: 'loading',
           backgroundColor: Colors.white,
@@ -50,8 +49,10 @@ class MyApp extends StatelessWidget {
 }
 
 //Show alert errors
-void showSnackBar(String message,
-    BuildContext context,) {
+void showSnackBar(
+  String message,
+  BuildContext context,
+) {
   var snackBar = SnackBar(
     behavior: SnackBarBehavior.floating,
     content: Stack(
